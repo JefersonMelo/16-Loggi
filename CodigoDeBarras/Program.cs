@@ -66,10 +66,10 @@ namespace CodigoDeBarras
             }
             finally
             {
-                Console.WriteLine("Fim da Leitura do Arquivo\n\n");
+                Console.WriteLine("Relatório Concluído\n\n");
+                gerarRelatorio(caminho, relatorio, listPedido);
             }
-
-            gerarRelatorio(caminho, relatorio, listPedido);
+            
         }
 
         private static void gerarRelatorio(string caminho, string relatorio, List<Pedido> listPedido)
