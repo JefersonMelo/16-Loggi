@@ -1,0 +1,90 @@
+Pacote 1
+Código: 888 555 555 123 888
+Região de origem: Sudeste
+Região de destino: Norte
+Código Loggi: 555
+Código do vendedor do produto: 123
+Tipo do produto: Brinquedos
+
+
+Pacote 3
+Código: 222 333 555 124 000
+Região de origem: 222
+Região de destino: Nordeste
+Código Loggi: 555
+Código do vendedor do produto: 124
+Tipo do produto: Jóias
+
+
+Pacote 4
+Código: 000 111 555 874 555
+Região de origem: Sul
+Região de destino: Centro-oeste
+Código Loggi: 555
+Código do vendedor do produto: 874
+Tipo do produto: Bebidas
+
+
+Pacote 6
+Código: 111 333 555 123 333
+Região de origem: Centro-oeste
+Região de destino: Nordeste
+Código Loggi: 555
+Código do vendedor do produto: 123
+Tipo do produto: Eletrônicos
+
+
+Pacote 7
+Código: 555 555 555 123 888
+Região de origem: Norte
+Região de destino: Norte
+Código Loggi: 555
+Código do vendedor do produto: 123
+Tipo do produto: Brinquedos
+
+
+Pacote 11
+Código: 555 888 555 123 000
+Região de origem: Norte
+Região de destino: Sudeste
+Código Loggi: 555
+Código do vendedor do produto: 123
+Tipo do produto: Jóias
+
+
+Pacote 12
+Código: 111 888 555 123 555
+Região de origem: Centro-oeste
+Região de destino: Sudeste
+Código Loggi: 555
+Código do vendedor do produto: 123
+Tipo do produto: Bebidas
+
+
+Pacote 13
+Código: 888 000 555 845 333
+Região de origem: Sudeste
+Região de destino: Sul
+Código Loggi: 555
+Código do vendedor do produto: 845
+Tipo do produto: Eletrônicos
+
+
+Pacote 14
+Código: 000 111 555 874 000
+Região de origem: Sul
+Região de destino: Centro-oeste
+Código Loggi: 555
+Código do vendedor do produto: 874
+Tipo do produto: Jóias
+
+
+Pacote 15
+Código: 111 333 555 123 555
+Região de origem: Centro-oeste
+Região de destino: Nordeste
+Código Loggi: 555
+Código do vendedor do produto: 123
+Tipo do produto: Bebidas
+
+
