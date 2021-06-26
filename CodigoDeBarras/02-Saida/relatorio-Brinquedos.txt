@@ -1,0 +1,22 @@
+***** Início Do Relatório Brinquedos*****
+
+Pacote 1
+Código: 888 555 555 123 888
+Região de origem: Sudeste
+Região de destino: Norte
+Código Loggi: 555
+Código do vendedor do produto: 123
+Tipo do produto: Brinquedos
+
+
+Pacote 7
+Código: 555 555 555 123 888
+Região de origem: Norte
+Região de destino: Norte
+Código Loggi: 555
+Código do vendedor do produto: 123
+Tipo do produto: Brinquedos
+
+
+***** Fim Do Relatório Brinquedos*****
+

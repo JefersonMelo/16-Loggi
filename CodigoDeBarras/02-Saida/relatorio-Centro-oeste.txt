@@ -1,0 +1,22 @@
+***** Início Do Relatório Centro-oeste*****
+
+Pacote 4
+Código: 000 111 555 874 555
+Região de origem: Sul
+Região de destino: Centro-oeste
+Código Loggi: 555
+Código do vendedor do produto: 874
+Tipo do produto: Bebidas
+
+
+Pacote 14
+Código: 000 111 555 874 000
+Região de origem: Sul
+Região de destino: Centro-oeste
+Código Loggi: 555
+Código do vendedor do produto: 874
+Tipo do produto: Jóias
+
+
+***** Fim Do Relatório Centro-oeste*****
+

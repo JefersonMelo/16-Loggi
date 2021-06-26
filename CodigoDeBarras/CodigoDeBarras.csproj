@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="01-Entrada\Relatorio.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="02-Saida\" />
   </ItemGroup>
 

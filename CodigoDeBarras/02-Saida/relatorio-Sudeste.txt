@@ -1,0 +1,22 @@
+***** Início Do Relatório Sudeste*****
+
+Pacote 11
+Código: 555 888 555 123 000
+Região de origem: Norte
+Região de destino: Sudeste
+Código Loggi: 555
+Código do vendedor do produto: 123
+Tipo do produto: Jóias
+
+
+Pacote 12
+Código: 111 888 555 123 555
+Região de origem: Centro-oeste
+Região de destino: Sudeste
+Código Loggi: 555
+Código do vendedor do produto: 123
+Tipo do produto: Bebidas
+
+
+***** Fim Do Relatório Sudeste*****
+

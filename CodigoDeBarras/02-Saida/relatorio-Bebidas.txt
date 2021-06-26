@@ -1,0 +1,31 @@
+***** Início Do Relatório Bebidas*****
+
+Pacote 4
+Código: 000 111 555 874 555
+Região de origem: Sul
+Região de destino: Centro-oeste
+Código Loggi: 555
+Código do vendedor do produto: 874
+Tipo do produto: Bebidas
+
+
+Pacote 12
+Código: 111 888 555 123 555
+Região de origem: Centro-oeste
+Região de destino: Sudeste
+Código Loggi: 555
+Código do vendedor do produto: 123
+Tipo do produto: Bebidas
+
+
+Pacote 15
+Código: 111 333 555 123 555
+Região de origem: Centro-oeste
+Região de destino: Nordeste
+Código Loggi: 555
+Código do vendedor do produto: 123
+Tipo do produto: Bebidas
+
+
+***** Fim Do Relatório Bebidas*****
+

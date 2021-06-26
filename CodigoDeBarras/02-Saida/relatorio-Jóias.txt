@@ -1,0 +1,22 @@
+***** Início Do Relatório Jóias*****
+
+Pacote 11
+Código: 555 888 555 123 000
+Região de origem: Norte
+Região de destino: Sudeste
+Código Loggi: 555
+Código do vendedor do produto: 123
+Tipo do produto: Jóias
+
+
+Pacote 14
+Código: 000 111 555 874 000
+Região de origem: Sul
+Região de destino: Centro-oeste
+Código Loggi: 555
+Código do vendedor do produto: 874
+Tipo do produto: Jóias
+
+
+***** Fim Do Relatório Jóias*****
+

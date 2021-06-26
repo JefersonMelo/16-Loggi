@@ -1,0 +1,22 @@
+***** Início Do Relatório Nordeste*****
+
+Pacote 6
+Código: 111 333 555 123 333
+Região de origem: Centro-oeste
+Região de destino: Nordeste
+Código Loggi: 555
+Código do vendedor do produto: 123
+Tipo do produto: Eletrônicos
+
+
+Pacote 15
+Código: 111 333 555 123 555
+Região de origem: Centro-oeste
+Região de destino: Nordeste
+Código Loggi: 555
+Código do vendedor do produto: 123
+Tipo do produto: Bebidas
+
+
+***** Fim Do Relatório Nordeste*****
+
