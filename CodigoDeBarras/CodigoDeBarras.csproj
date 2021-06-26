@@ -6,12 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Util\**" />
-    <EmbeddedResource Remove="Util\**" />
-    <None Remove="Util\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="Arquivos\01-Entrada\Relatorio.txt" />
   </ItemGroup>
 

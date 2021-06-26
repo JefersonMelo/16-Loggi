@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CodigoDeBarras.Util;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace CodigoDeBarras
 		static TipoProduto tipoProduto = new TipoProduto();
 		static Regiao regiao = new Regiao();
 		static Vendedor vendedor = new Vendedor();
+		static Menu menu = new Menu();
 
 		[STAThread]
 		static void Main(string[] args)
@@ -34,17 +36,8 @@ namespace CodigoDeBarras
 				//Arquivo de origem não é editado.
 				formatarArquivo(caminhoDados, arquivoInicial, listPedido);
 
-				Console.Write("\n***** Escolha Uma Opção *****\n\n" +
-						   "1 - Para Ler O Arquivo Completo\n" +
-						   "2 - Listar Código de Barras Válidos\n" +
-						   "3 - Listar Código de Barras Inválidos\n" +
-						   "4 - Listar Agrupado Por Região\n" +
-						   "5 - Listar Vendas + Vendedores\n" +
-						   "6 - Pesquisar Por Origem e Produto\n" +
-						   "7 - Gerar Relatório\n" +
-						   "8 - Limpar Console\n" +
-						   "0 - Para Sair\n\n" +
-						   "Opção: ");
+				Console.WriteLine(menu.ImprimirMenu());
+				Console.Write("Opção: ");
 
 				//Leitura da opção.
 				opcao = int.Parse(Console.ReadLine());
@@ -388,7 +381,5 @@ namespace CodigoDeBarras
 			removerJoiaCentroOeste.RemoveAll(delegate (Pedido rjco) { return rjco.Origem == "Centro-oeste" && rjco.Produto == "Jóias"; });
 			removerRegiaoInvalida.RemoveAll(delegate (Pedido rri) { return rri.Origem == "ND" || rri.Destino == "ND"; });
 		}
-
-
 	}
 }
