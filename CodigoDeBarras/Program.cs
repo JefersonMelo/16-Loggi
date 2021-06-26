@@ -52,86 +52,92 @@ namespace CodigoDeBarras
 
 
 				//Menu
-				if(opcao == 1)
+				switch(opcao)
 				{
-					//Visializar arquivo.
-					//Formata o arquivo e mostra para o usuário.
-					//Arquivo de origem não é editado.
-					//Arquivo .txt não é gerado.
-					visualizarArquivo(listPedido);
-				}
-				if(opcao == 2)
-				{	   
-					//Gera uma visialização de código de barras válidos.
-					//Mostra para o usuário, no console, apenas pacotes válidos.
-					//Arquivo de origem não é editado.
-					//Arquivo .txt não é gerado.
-					codigoBarrasValido(listPedido);
-				}
-				if(opcao == 3)
-				{
-					//Gera uma visialização de código de barras inválidos.
-					//Mostra para o usuário, no console, apenas pacotes invalidos.
-					//Arquivo de origem não é editado.
-					//Arquivo .txt não é gerado.
-					codigoBarrasInvalido(listPedido);
-				}
-				if(opcao == 4)
-				{
-					//Gera uma visialização de código de barras ordenados por região e produto.
-					//Mostra para o usuário, no console, apenas pacotes válidos.
-					//Arquivo de origem não é editado.
-					//Arquivo .txt não é gerado.
-					listarAgrupadoPorRegiao(listPedido);
-				}
-				if(opcao == 5)
-				{
-					//Gera uma visialização dos vendedores.
-					//Contagem das vendas de cada um.
-					//Mostra para o usuário, no console, apenas pacotes válidos.
-					//Arquivo de origem não é editado.
-					//Arquivo .txt não é gerado.
-					Console.WriteLine(vendasVendedores(listPedido));
-				}
-				if(opcao == 6)
-				{
-					//Gera uma visialização de uma ogirem de envio.
-					//Filtro por origem do pacote e produto.
-					//Se Condição Satisfeita, retrona o pacote.
-					//Se não, retorna pacote não localizado.
-					//Arquivo de origem não é editado.
-					//Arquivo .txt não é gerado.
-					string origem, produto;
-					Console.Write("Entre Com A Região De Origem: ");
-					origem = Console.ReadLine();
-					Console.Write("\nEntre Com O Produto: ");
-					produto = Console.ReadLine();
-					Console.WriteLine("\n");
-					pesquisarPorOrigemProduto(origem, produto, listPedido);
-				}
-				if(opcao == 7)
-				{
-					//Gera relatório.
-					//Entrada do caminho para salvar o arquivo é obrigatória.
-					//Um único caminho é necessário.
-					//É obrigatório o título do relatório.
-					//Arquivo de origem não é editado.
-					//Arquivo .txt é gerado com o título fornecido.
-					if(cont < 1)
-					{
-						Console.Write("Entre Com O Camino Onde Salvar O Relatório Gerado: ");
-						caminhoSalvarRelatorio = Console.ReadLine();
-					}
-					cont++;
+					case 1:
+						//Visializar arquivo.
+						//Formata o arquivo e mostra para o usuário.
+						//Arquivo de origem não é editado.
+						//Arquivo .txt não é gerado.
+						visualizarArquivo(listPedido);
+						break;
 
-					Console.Write("Entre Com O Nome Do Relatório A Ser Gerado: ");
-					string nomeRelatorio = Console.ReadLine();
-					gerarRelatorio(caminhoSalvarRelatorio, nomeRelatorio, listPedido);
-				}
-				if(opcao == 8)
-				{
-					//Limpeza do console
-					Console.Clear();
+					case 2:
+						//Gera uma visialização de código de barras válidos.
+						//Mostra para o usuário, no console, apenas pacotes válidos.
+						//Arquivo de origem não é editado.
+						//Arquivo .txt não é gerado.
+						codigoBarrasValido(listPedido);
+						break;
+
+					case 3:
+						//Gera uma visialização de código de barras inválidos.
+						//Mostra para o usuário, no console, apenas pacotes invalidos.
+						//Arquivo de origem não é editado.
+						//Arquivo .txt não é gerado.
+						codigoBarrasInvalido(listPedido);
+						break;
+
+					case 4:
+						//Gera uma visialização de código de barras ordenados por região e produto.
+						//Mostra para o usuário, no console, apenas pacotes válidos.
+						//Arquivo de origem não é editado.
+						//Arquivo .txt não é gerado.
+						listarAgrupadoPorRegiao(listPedido);
+						break;
+
+					case 5:
+						//Gera uma visialização dos vendedores.
+						//Contagem das vendas de cada um.
+						//Mostra para o usuário, no console, apenas pacotes válidos.
+						//Arquivo de origem não é editado.
+						//Arquivo .txt não é gerado.
+						Console.WriteLine(vendasVendedores(listPedido));
+						break;
+
+					case 6:
+						//Gera uma visialização de uma ogirem de envio.
+						//Filtro por origem do pacote e produto.
+						//Se Condição Satisfeita, retrona o pacote.
+						//Se não, retorna pacote não localizado.
+						//Arquivo de origem não é editado.
+						//Arquivo .txt não é gerado.
+						string origem, produto;
+						Console.Write("Entre Com A Região De Origem: ");
+						origem = Console.ReadLine();
+						Console.Write("\nEntre Com O Produto: ");
+						produto = Console.ReadLine();
+						Console.WriteLine("\n");
+						pesquisarPorOrigemProduto(origem, produto, listPedido);
+						break;
+
+					case 7:
+						//Gera relatório.
+						//Entrada do caminho para salvar o arquivo é obrigatória.
+						//Um único caminho é necessário.
+						//É obrigatório o título do relatório.
+						//Arquivo de origem não é editado.
+						//Arquivo .txt é gerado com o título fornecido.
+						if(cont < 1)
+						{
+							Console.Write("Entre Com O Camino Onde Salvar O Relatório Gerado: ");
+							caminhoSalvarRelatorio = Console.ReadLine();
+						}
+						cont++;
+
+						Console.Write("Entre Com O Nome Do Relatório A Ser Gerado: ");
+						string nomeRelatorio = Console.ReadLine();
+						gerarRelatorio(caminhoSalvarRelatorio, nomeRelatorio, listPedido);
+						break;
+
+					case 8:
+						//Limpeza do console
+						Console.Clear();
+						break;
+
+					default:
+						Console.WriteLine("***** Fim *****");
+						break;
 				}
 
 			} while(opcao != 0); // 0 é a opção do encerramento do programa.
