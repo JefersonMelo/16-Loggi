@@ -85,7 +85,7 @@ namespace CodigoDeBarras
 					}
 					cont++;
 
-					Console.Write("Entre Com O Relatório A Ser Gerado: ");
+					Console.Write("Entre Com O Nome Do Relatório A Ser Gerado: ");
 					string nomeRelatorio = Console.ReadLine();
 					gerarRelatorio(caminhoSalvarRelatorio, nomeRelatorio, listPedido);
 				}
