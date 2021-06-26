@@ -21,7 +21,7 @@ Tipo do produto: #####
 
 1. Para o programa funcionar, é necessário indicar o caminho do arquivo. Ao clonar este repositório, ele estará no caminho ``C:\...\16-Loggi\CodigoDeBarras\Arquivos\01-Entrada``.
 
-    - Se desejar configurar um local fixo na aplicação, o formato com duas barras invertidas deve ser respeitado``C:\\...\\16-Loggi\\CodigoDeBarras\\Arquivos\\01-Entrada\\``.
+    - Se desejar configurar um local fixo na aplicação, o formato com duas barras invertidas deve ser respeitado ``C:\...\16-Loggi\CodigoDeBarras\Arquivos\01-Entrada``.
 
     - Não é necessário editar a string se for usar a aplicação. Está configurado para ajustar a string por padrão.
 
