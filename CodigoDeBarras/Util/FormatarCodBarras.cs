@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CodigoDeBarras.Util
 {
@@ -12,7 +9,7 @@ namespace CodigoDeBarras.Util
 		static TipoProduto tipoProduto = new TipoProduto();
 		static Regiao regiao = new Regiao();
 		static Vendedor vendedor = new Vendedor();
-		
+
 		//Responssável por carregar o arquivo.
 		//Formata visualização.
 		//Arquivo de origem não é editado.
