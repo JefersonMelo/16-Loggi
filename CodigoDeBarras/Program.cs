@@ -19,7 +19,9 @@ namespace CodigoDeBarras
 			Console.Write("Entre Com O Camino Do Arquivo De Texto A Ser Lido: ");
 			string rota = Console.ReadLine();
 			Console.Write("Entre Com O Nome Do Arquivo: ");
-			string arquivoInicial = Console.ReadLine();
+			string arquivoInicial = "pacotes";// Console.ReadLine(); //Remover comentário para entrada do usuário.
+
+			//Formatação da string de entrada, conforme especificações requeridas pela linguagem escolhida. C#
 			var caminhoDados = rota.Replace("\\", "\\\\\"");
 			caminhoDados = caminhoDados.Replace("\"", "");
 			int cont = 0;
@@ -28,6 +30,8 @@ namespace CodigoDeBarras
 
 			do
 			{
+				//Prepara formatando a visualização para o usuário.
+				//Arquivo de origem não é editado.
 				formatarArquivo(caminhoDados, arquivoInicial, listPedido);
 
 				Console.Write("\n***** Escolha Uma Opção *****\n\n" +
@@ -42,32 +46,61 @@ namespace CodigoDeBarras
 						   "0 - Para Sair\n\n" +
 						   "Opção: ");
 
+				//Leitura da opção.
 				opcao = int.Parse(Console.ReadLine());
 				Console.WriteLine();
 
 
+				//Menu
 				if(opcao == 1)
 				{
+					//Visializar arquivo.
+					//Formata o arquivo e mostra para o usuário.
+					//Arquivo de origem não é editado.
+					//Arquivo .txt não é gerado.
 					visualizarArquivo(listPedido);
 				}
 				if(opcao == 2)
-				{
+				{	   
+					//Gera uma visialização de código de barras válidos.
+					//Mostra para o usuário, no console, apenas pacotes válidos.
+					//Arquivo de origem não é editado.
+					//Arquivo .txt não é gerado.
 					codigoBarrasValido(listPedido);
 				}
 				if(opcao == 3)
 				{
+					//Gera uma visialização de código de barras inválidos.
+					//Mostra para o usuário, no console, apenas pacotes invalidos.
+					//Arquivo de origem não é editado.
+					//Arquivo .txt não é gerado.
 					codigoBarrasInvalido(listPedido);
 				}
 				if(opcao == 4)
 				{
+					//Gera uma visialização de código de barras ordenados por região e produto.
+					//Mostra para o usuário, no console, apenas pacotes válidos.
+					//Arquivo de origem não é editado.
+					//Arquivo .txt não é gerado.
 					listarAgrupadoPorRegiao(listPedido);
 				}
 				if(opcao == 5)
 				{
+					//Gera uma visialização dos vendedores.
+					//Contagem das vendas de cada um.
+					//Mostra para o usuário, no console, apenas pacotes válidos.
+					//Arquivo de origem não é editado.
+					//Arquivo .txt não é gerado.
 					Console.WriteLine(vendasVendedores(listPedido));
 				}
 				if(opcao == 6)
 				{
+					//Gera uma visialização de uma ogirem de envio.
+					//Filtro por origem do pacote e produto.
+					//Se Condição Satisfeita, retrona o pacote.
+					//Se não, retorna pacote não localizado.
+					//Arquivo de origem não é editado.
+					//Arquivo .txt não é gerado.
 					string origem, produto;
 					Console.Write("Entre Com A Região De Origem: ");
 					origem = Console.ReadLine();
@@ -78,6 +111,12 @@ namespace CodigoDeBarras
 				}
 				if(opcao == 7)
 				{
+					//Gera relatório.
+					//Entrada do caminho para salvar o arquivo é obrigatória.
+					//Um único caminho é necessário.
+					//É obrigatório o título do relatório.
+					//Arquivo de origem não é editado.
+					//Arquivo .txt é gerado com o título fornecido.
 					if(cont < 1)
 					{
 						Console.Write("Entre Com O Camino Onde Salvar O Relatório Gerado: ");
@@ -91,14 +130,18 @@ namespace CodigoDeBarras
 				}
 				if(opcao == 8)
 				{
+					//Limpeza do console
 					Console.Clear();
 				}
 
-			} while(opcao != 0);
+			} while(opcao != 0); // 0 é a opção do encerramento do programa.
 
 
 		}//Fim: Main
 
+		//Responssável por carregar o arquivo.
+		//Formata visualização.
+		//Arquivo de origem não é editado.
 		private static void formatarArquivo(string caminhoDados, string arquivoInicial, List<Pedido> listPedido)
 		{
 			string line;
@@ -138,6 +181,7 @@ namespace CodigoDeBarras
 			}
 		}
 
+		//Menu: 1 - Para Ler O Arquivo Completo
 		private static void visualizarArquivo(List<Pedido> listPedido)
 		{
 			Console.WriteLine("***** Início Do Arquivo *****\n");
@@ -150,6 +194,7 @@ namespace CodigoDeBarras
 			Console.WriteLine("***** Leitura De Arquivo Conclída *****\n");
 		}
 
+		//Menu: 2 - Listar Código de Barras Válidos
 		private static void codigoBarrasValido(List<Pedido> listPedido)
 		{
 			Console.WriteLine("***** Início Do Arquivo *****\n");
@@ -171,6 +216,7 @@ namespace CodigoDeBarras
 			Console.WriteLine("***** Pesquisa Por Código de Barras Válido Concluída *****\n");
 		}
 
+		//Menu: 3 - Listar Código de Barras Inválidos
 		private static void codigoBarrasInvalido(List<Pedido> listPedido)
 		{
 			Console.WriteLine("***** Início Do Arquivo *****\n");
@@ -192,6 +238,7 @@ namespace CodigoDeBarras
 			Console.WriteLine("***** Pesquisa Por Código de Barras Inválido Concluída *****\n");
 		}
 
+		//Menu: 4 - Listar Agrupado Por Região
 		private static void listarAgrupadoPorRegiao(List<Pedido> listPedido)
 		{
 			Console.WriteLine("***** Início Do Arquivo *****\n");
@@ -212,6 +259,7 @@ namespace CodigoDeBarras
 
 		}
 
+		//Menu: 5 - Listar Vendas + Vendedores
 		private static string vendasVendedores(List<Pedido> listPedido)
 		{
 			Console.WriteLine("***** Início Do Arquivo *****\n");
@@ -246,19 +294,25 @@ namespace CodigoDeBarras
 
 		}
 
-		private static void restricoes(List<Pedido> listPedido)
+		//Menu: 6 - Pesquisar Por Origem e Produto
+		private static void pesquisarPorOrigemProduto(string origem, string produto, List<Pedido> listPedido)
 		{
-			List<Pedido> removerVendedor = listPedido;
-			List<Pedido> removerProduto = listPedido;
-			List<Pedido> removerJoiaCentroOeste = listPedido;
-			List<Pedido> removerRegiaoInvalida = listPedido;
+			Console.WriteLine("***** Início Do Arquivo *****\n");
 
-			removerVendedor.RemoveAll(delegate (Pedido p) { return p.CodVendedor == "Inativo"; });
-			removerProduto.RemoveAll(delegate (Pedido tp) { return tp.Produto == "ND"; });
-			removerJoiaCentroOeste.RemoveAll(delegate (Pedido rjco) { return rjco.Origem == "Centro-oeste" && rjco.Produto == "Jóias"; });
-			removerRegiaoInvalida.RemoveAll(delegate (Pedido rri) { return rri.Origem == "ND" || rri.Destino == "ND"; });
+			foreach(var item in listPedido)
+			{
+				if(item.Origem == origem && item.Produto == produto)
+				{
+					Console.WriteLine("***** Produto Localizado! :D *****\n");
+					Console.WriteLine($"\n{item}");
+					break;
+				}
+			}
+			listPedido.Clear();
+			Console.WriteLine("***** Produto Não Localizado :( *****\n");
 		}
 
+		//Menu: 7 - Gerar Relatório
 		private static void gerarRelatorio(string caminhoSalvarRelatorio, string nomeRelatorio, List<Pedido> listPedido)
 		{
 			Console.WriteLine("***** Início Do Arquivo *****\n");
@@ -304,21 +358,31 @@ namespace CodigoDeBarras
 			}
 		}
 
-		private static void pesquisarPorOrigemProduto(string origem, string produto, List<Pedido> listPedido)
+		/*
+		 ***** Restrições *****
+		
+		1) A Loggi não envia produtos que não sejam dos tipos acima
+		informados.
+		2) Não é possível despachar pacotes contendo jóias tendo como
+		região de origem o Centro-oeste;
+		3) O vendedor 584 está com seu CNPJ inativo e, portanto, não pode
+		mais enviar pacotes pela Loggi, os códigos de barra que
+		estiverem relacionados a este vendedor devem ser considerados
+		inválidos.
+		*/
+		private static void restricoes(List<Pedido> listPedido)
 		{
-			Console.WriteLine("***** Início Do Arquivo *****\n");
+			List<Pedido> removerVendedor = listPedido;
+			List<Pedido> removerProduto = listPedido;
+			List<Pedido> removerJoiaCentroOeste = listPedido;
+			List<Pedido> removerRegiaoInvalida = listPedido;
 
-			foreach(var item in listPedido)
-			{
-				if(item.Origem == origem && item.Produto == produto)
-				{
-					Console.WriteLine("***** Produto Localizado! :D *****\n");
-					Console.WriteLine($"\n{item}");
-					break;
-				}
-			}
-			listPedido.Clear();
-			Console.WriteLine("***** Produto Não Localizado :( *****\n");
+			removerVendedor.RemoveAll(delegate (Pedido p) { return p.CodVendedor == "Inativo"; });
+			removerProduto.RemoveAll(delegate (Pedido tp) { return tp.Produto == "ND"; });
+			removerJoiaCentroOeste.RemoveAll(delegate (Pedido rjco) { return rjco.Origem == "Centro-oeste" && rjco.Produto == "Jóias"; });
+			removerRegiaoInvalida.RemoveAll(delegate (Pedido rri) { return rri.Origem == "ND" || rri.Destino == "ND"; });
 		}
+
+
 	}
 }
