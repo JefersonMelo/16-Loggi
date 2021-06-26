@@ -40,15 +40,15 @@ Tipo do produto: #####
 |Título|Link Relacionado|
 |-|-|
 |Formatar String C#|[TecGuia - João da Costa](https://sites.google.com/site/tecguia/formatar-string-c-string-format)|
-|Com Usar Replace C#|[Docs Microsoft](https://docs.microsoft.com/pt-br/dotnet/csharp/how-to/modify-string-contents#code-try-3)|
-|Com Usar Replace C#|[Docs Microsoft](https://docs.microsoft.com/pt-br/dotnet/api/system.string.replace?view=net-5.0#System_String_Replace_System_Char_System_Char_)|
-|Com Usar Replace C#|[Stack Overflow](https://stackoverflow.com/questions/4673437/c-sharp-replace-characters)|
+|1. Como Usar Replace C#|[Docs Microsoft](https://docs.microsoft.com/pt-br/dotnet/csharp/how-to/modify-string-contents#code-try-3)|
+|2. Como Usar Replace C#|[Docs Microsoft](https://docs.microsoft.com/pt-br/dotnet/api/system.string.replace?view=net-5.0#System_String_Replace_System_Char_System_Char_)|
+|3. Como Usar Replace C#|[Stack Overflow](https://stackoverflow.com/questions/4673437/c-sharp-replace-characters)|
 |Split C#|[Docs Microsoft](https://docs.microsoft.com/pt-br/dotnet/standard/base-types/divide-up-strings)|
 |Ler Arquivo C#|[Docs Microsoft](https://docs.microsoft.com/pt-br/troubleshoot/dotnet/csharp/read-write-text-file)|
 |Escrever Arquivo C#|[Docs Microsoft](https://docs.microsoft.com/pt-br/dotnet/standard/io/how-to-write-text-to-a-file)|
 |Pesquisar Na String C#|[Docs Microsoft](https://docs.microsoft.com/pt-br/dotnet/csharp/how-to/search-strings)|
 |Dividir Strings C#|[Docs Microsoft](https://docs.microsoft.com/pt-br/dotnet/csharp/how-to/parse-strings-using-split#code-try-4)|
-|Pesquisar em List<> C#|[Docs Microsoft](https://docs.microsoft.com/pt-br/dotnet/api/system.collections.generic.list-1.find?view=net-5.0)|
-|Pesquisar em List<> C#|[Macoratti.net](http://www.macoratti.net/10/02/c_list1.htm)|
+|1. Pesquisar em List<> C#|[Docs Microsoft](https://docs.microsoft.com/pt-br/dotnet/api/system.collections.generic.list-1.find?view=net-5.0)|
+|2. Pesquisar em List<> C#|[Macoratti.net](http://www.macoratti.net/10/02/c_list1.htm)|
 |Ordenar List<> C#|[Repositório Jeferon Melo](https://github.com/JefersonMelo/01-URI/blob/master/04-Estruturas_e_Bibliotecas/URI_1258/Program.cs)|
 |Remover Duplicados List<> C# |[Docs Microsoft](https://docs.microsoft.com/pt-br/dotnet/framework/data/adonet/sql/linq/eliminate-duplicate-elements-from-a-sequence)|
