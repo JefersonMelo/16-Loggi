@@ -8,10 +8,7 @@ namespace CodigoDeBarras
 {
 	class Program
 	{
-
-		static TipoProduto tipoProduto = new TipoProduto();
-		static Regiao regiao = new Regiao();
-		static Vendedor vendedor = new Vendedor();
+		static FormatarCodBarras fcb = new FormatarCodBarras();
 		static Menu menu = new Menu();
 
 		[STAThread]
@@ -24,7 +21,7 @@ namespace CodigoDeBarras
 			string arquivoInicial = "pacotes";// Console.ReadLine(); //Remover comentário para entrada do usuário.
 
 			//Formatação da string de entrada, conforme especificações requeridas pela linguagem escolhida. C#
-			var caminhoDados = rota.Replace("\\", "\\\\\"");
+			string caminhoDados = rota.Replace("\\", "\\\\\"");
 			caminhoDados = caminhoDados.Replace("\"", "");
 			int cont = 0;
 			string caminhoSalvarRelatorio = "";
@@ -34,7 +31,7 @@ namespace CodigoDeBarras
 			{
 				//Prepara formatando a visualização para o usuário.
 				//Arquivo de origem não é editado.
-				formatarArquivo(caminhoDados, arquivoInicial, listPedido);
+				fcb.formatarArquivo(caminhoDados, arquivoInicial, listPedido);
 
 				Console.WriteLine(menu.ImprimirMenu());
 				Console.Write("Opção: ");
@@ -137,48 +134,6 @@ namespace CodigoDeBarras
 
 
 		}//Fim: Main
-
-		//Responssável por carregar o arquivo.
-		//Formata visualização.
-		//Arquivo de origem não é editado.
-		private static void formatarArquivo(string caminhoDados, string arquivoInicial, List<Pedido> listPedido)
-		{
-			string line;
-
-			try
-			{
-				StreamReader sr = new StreamReader($"{caminhoDados}\\{arquivoInicial}.txt");
-				line = sr.ReadLine();
-
-				while(line != null)
-				{
-					string[] divPacotCodBarras = line.Split(':');
-					long codBarras = long.Parse(divPacotCodBarras[1]);
-					string codFormat = String.Format(@"{0:000\ 000\ 000\ 000\ 000}", codBarras);
-					string[] trincaCodBarras = codFormat.Split();
-
-					listPedido.Add(new Pedido
-					{
-						Pacote = divPacotCodBarras[0],
-						CodBarras = codFormat,
-						Origem = regiao.regiao(trincaCodBarras[0]),
-						Destino = regiao.regiao(trincaCodBarras[1]),
-						CodLoggi = trincaCodBarras[2],
-						CodVendedor = vendedor.statusVendedor(trincaCodBarras[3]),
-						Produto = tipoProduto.tipoProduto(trincaCodBarras[4])
-					});
-
-					line = sr.ReadLine();
-
-				}
-				sr.Close();
-
-			}
-			catch(Exception e)
-			{
-				Console.WriteLine("Exception: " + e.Message);
-			}
-		}
 
 		//Menu: 1 - Para Ler O Arquivo Completo
 		private static void visualizarArquivo(List<Pedido> listPedido)
