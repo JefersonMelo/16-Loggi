@@ -34,7 +34,7 @@ namespace CodigoDeBarras
 				//Arquivo de origem não é editado.
 				formatarArquivo(caminhoDados, arquivoInicial, listPedido);
 
-				Console.Write("\n***** Escolha Uma Opção *****\n\n" +
+				Console.Write(@"\n***** Escolha Uma Opção *****\n\n" +
 						   "1 - Para Ler O Arquivo Completo\n" +
 						   "2 - Listar Código de Barras Válidos\n" +
 						   "3 - Listar Código de Barras Inválidos\n" +

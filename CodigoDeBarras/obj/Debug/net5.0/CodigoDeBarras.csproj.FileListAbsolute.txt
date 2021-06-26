@@ -13,3 +13,4 @@ C:\Users\jef_m\Documents\01-github\16-Loggi\CodigoDeBarras\obj\Debug\net5.0\Codi
 C:\Users\jef_m\Documents\01-github\16-Loggi\CodigoDeBarras\obj\Debug\net5.0\ref\CodigoDeBarras.dll
 C:\Users\jef_m\Documents\01-github\16-Loggi\CodigoDeBarras\obj\Debug\net5.0\CodigoDeBarras.pdb
 C:\Users\jef_m\Documents\01-github\16-Loggi\CodigoDeBarras\obj\Debug\net5.0\CodigoDeBarras.genruntimeconfig.cache
+C:\Users\jef_m\Documents\01-github\16-Loggi\CodigoDeBarras\obj\Debug\net5.0\CodigoDeBarras.csproj.AssemblyReference.cache
