@@ -16,13 +16,10 @@ namespace CodigoDeBarras
 		{
 			List<Pedido> listPedido = new List<Pedido>();
 			Console.Write("Entre Com O Camino Do Arquivo De Texto A Ser Lido: ");
-			string rota = Console.ReadLine();
+			string caminhoDados = Console.ReadLine();
 			Console.Write("Entre Com O Nome Do Arquivo: ");
 			string arquivoInicial = "pacotes";// Console.ReadLine(); //Remover comentário para entrada do usuário.
 
-			//Formatação da string de entrada, conforme especificações requeridas pela linguagem escolhida. C#
-			string caminhoDados = rota.Replace("\\", "\\\\\"");
-			caminhoDados = caminhoDados.Replace("\"", "");
 			int cont = 0;
 			string caminhoSalvarRelatorio = "";
 			int opcao;
@@ -57,7 +54,7 @@ namespace CodigoDeBarras
 						//Mostra para o usuário, no console, apenas pacotes válidos.
 						//Arquivo de origem não é editado.
 						//Arquivo .txt não é gerado.
-						codigoBarrasValido(listPedido);
+						listarCodigoBarrasValido(listPedido);
 						break;
 
 					case 3:
@@ -65,7 +62,7 @@ namespace CodigoDeBarras
 						//Mostra para o usuário, no console, apenas pacotes invalidos.
 						//Arquivo de origem não é editado.
 						//Arquivo .txt não é gerado.
-						codigoBarrasInvalido(listPedido);
+						listarCodigoBarrasInvalido(listPedido);
 						break;
 
 					case 4:
@@ -149,20 +146,13 @@ namespace CodigoDeBarras
 		}
 
 		//Menu: 2 - Listar Código de Barras Válidos
-		private static void codigoBarrasValido(List<Pedido> listPedido)
+		private static void listarCodigoBarrasValido(List<Pedido> listPedido)
 		{
 			Console.WriteLine("***** Início Do Arquivo *****\n");
 
-			List<Pedido> codValido = listPedido;
-			codValido.RemoveAll(delegate (Pedido p)
-			{
-				return p.CodVendedor == "Inativo"
-				|| p.Produto == "ND"
-				|| p.Origem == "ND"
-				|| p.Destino == "ND";
-			});
+			restricoes(listPedido);
 
-			foreach(var item in codValido)
+			foreach(var item in listPedido)
 			{
 				Console.WriteLine(item);
 			}
@@ -171,7 +161,7 @@ namespace CodigoDeBarras
 		}
 
 		//Menu: 3 - Listar Código de Barras Inválidos
-		private static void codigoBarrasInvalido(List<Pedido> listPedido)
+		private static void listarCodigoBarrasInvalido(List<Pedido> listPedido)
 		{
 			Console.WriteLine("***** Início Do Arquivo *****\n");
 
@@ -217,6 +207,8 @@ namespace CodigoDeBarras
 		private static string vendasVendedores(List<Pedido> listPedido)
 		{
 			Console.WriteLine("***** Início Do Arquivo *****\n");
+			
+			restricoes(listPedido);
 
 			int v123 = 0, v124 = 0, v874 = 0, v845 = 0;
 
@@ -328,13 +320,15 @@ namespace CodigoDeBarras
 		{
 			List<Pedido> removerVendedor = listPedido;
 			List<Pedido> removerProduto = listPedido;
+			List<Pedido> removerDestinoInvalido = listPedido;
+			List<Pedido> removerOrigemInvalida = listPedido;
 			List<Pedido> removerJoiaCentroOeste = listPedido;
-			List<Pedido> removerRegiaoInvalida = listPedido;
 
 			removerVendedor.RemoveAll(delegate (Pedido p) { return p.CodVendedor == "Inativo"; });
 			removerProduto.RemoveAll(delegate (Pedido tp) { return tp.Produto == "ND"; });
+			removerDestinoInvalido.RemoveAll(delegate (Pedido rdi) { return rdi.Destino == "ND"; });
+			removerOrigemInvalida.RemoveAll(delegate (Pedido roi) { return roi.Origem == "ND"; });
 			removerJoiaCentroOeste.RemoveAll(delegate (Pedido rjco) { return rjco.Origem == "Centro-oeste" && rjco.Produto == "Jóias"; });
-			removerRegiaoInvalida.RemoveAll(delegate (Pedido rri) { return rri.Origem == "ND" || rri.Destino == "ND"; });
 		}
 	}
 }
