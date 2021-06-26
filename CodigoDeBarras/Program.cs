@@ -1,4 +1,5 @@
 ﻿using CodigoDeBarras.Util;
+using CodigoDeBarras.RegraNegocio;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,6 +10,7 @@ namespace CodigoDeBarras
 	class Program
 	{
 		static FormatarCodBarras fcb = new FormatarCodBarras();
+		static RestricoesDeEnvio envio = new RestricoesDeEnvio();
 		static Menu menu = new Menu();
 
 		[STAThread]
@@ -38,7 +40,7 @@ namespace CodigoDeBarras
 				Console.WriteLine();
 
 
-				//Menu
+				//0 é a opção do encerramento do programa.
 				switch(opcao)
 				{
 					case 1:
@@ -127,7 +129,7 @@ namespace CodigoDeBarras
 						break;
 				}
 
-			} while(opcao != 0); // 0 é a opção do encerramento do programa.
+			} while(opcao != 0); 
 
 
 		}//Fim: Main
@@ -150,7 +152,7 @@ namespace CodigoDeBarras
 		{
 			Console.WriteLine("***** Início Do Arquivo *****\n");
 
-			restricoes(listPedido);
+			envio.restricoes(listPedido);
 
 			foreach(var item in listPedido)
 			{
@@ -187,7 +189,7 @@ namespace CodigoDeBarras
 		{
 			Console.WriteLine("***** Início Do Arquivo *****\n");
 
-			restricoes(listPedido);
+			envio.restricoes(listPedido);
 
 			IEnumerable<Pedido> ordemDestino = from pedido in listPedido
 											   orderby pedido.Destino
@@ -207,8 +209,8 @@ namespace CodigoDeBarras
 		private static string vendasVendedores(List<Pedido> listPedido)
 		{
 			Console.WriteLine("***** Início Do Arquivo *****\n");
-			
-			restricoes(listPedido);
+
+			envio.restricoes(listPedido);
 
 			int v123 = 0, v124 = 0, v874 = 0, v845 = 0;
 
@@ -263,7 +265,7 @@ namespace CodigoDeBarras
 		{
 			Console.WriteLine("***** Início Do Arquivo *****\n");
 
-			restricoes(listPedido);
+			envio.restricoes(listPedido);
 
 			foreach(var item in listPedido)
 			{
@@ -304,31 +306,5 @@ namespace CodigoDeBarras
 			}
 		}
 
-		/*
-		 ***** Restrições *****
-		
-		1) A Loggi não envia produtos que não sejam dos tipos acima
-		informados.
-		2) Não é possível despachar pacotes contendo jóias tendo como
-		região de origem o Centro-oeste;
-		3) O vendedor 584 está com seu CNPJ inativo e, portanto, não pode
-		mais enviar pacotes pela Loggi, os códigos de barra que
-		estiverem relacionados a este vendedor devem ser considerados
-		inválidos.
-		*/
-		private static void restricoes(List<Pedido> listPedido)
-		{
-			List<Pedido> removerVendedor = listPedido;
-			List<Pedido> removerProduto = listPedido;
-			List<Pedido> removerDestinoInvalido = listPedido;
-			List<Pedido> removerOrigemInvalida = listPedido;
-			List<Pedido> removerJoiaCentroOeste = listPedido;
-
-			removerVendedor.RemoveAll(delegate (Pedido p) { return p.CodVendedor == "Inativo"; });
-			removerProduto.RemoveAll(delegate (Pedido tp) { return tp.Produto == "ND"; });
-			removerDestinoInvalido.RemoveAll(delegate (Pedido rdi) { return rdi.Destino == "ND"; });
-			removerOrigemInvalida.RemoveAll(delegate (Pedido roi) { return roi.Origem == "ND"; });
-			removerJoiaCentroOeste.RemoveAll(delegate (Pedido rjco) { return rjco.Origem == "Centro-oeste" && rjco.Produto == "Jóias"; });
-		}
 	}
 }
