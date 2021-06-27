@@ -173,7 +173,8 @@ namespace CodigoDeBarras
 				return p.CodVendedor != "Inativo"
 				&& p.Produto != "ND"
 				&& p.Origem != "ND"
-				&& p.Destino != "ND";
+				&& p.Destino != "ND"
+				&& !(p.Origem == "Centro-oeste" && p.Produto == "Jóias");
 			});
 
 			foreach(var item in codInvalido)
