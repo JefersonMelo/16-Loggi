@@ -2,37 +2,34 @@
 {
 	class Regiao
 	{
-		private readonly string centroOeste = "111";
-		private readonly string nordeste = "333";
-		private readonly string norte = "555";
-		private readonly string sudeste = "888";
-		private readonly string sul = "000";
+		const string centroOeste = "111";
+		const string nordeste = "333";
+		const string norte = "555";
+		const string sudeste = "888";
+		const string sul = "000";
 
 		public string regiao(string regiao)
 		{
-			if(regiao == centroOeste)
+			switch(regiao)
 			{
-				regiao = "Centro-oeste";
-			}
-			else if(regiao == nordeste)
-			{
-				regiao = "Nordeste";
-			}
-			else if(regiao == norte)
-			{
-				regiao = "Norte";
-			}
-			else if(regiao == sudeste)
-			{
-				regiao = "Sudeste";
-			}
-			else if(regiao == sul)
-			{
-				regiao = "Sul";
-			}
-			else
-			{
-				regiao = "ND";
+				case centroOeste:
+					regiao = "Centro-oeste";
+					break;
+				case nordeste:
+					regiao = "Nordeste";
+					break;
+				case norte:
+					regiao = "Norte";
+					break;
+				case sudeste:
+					regiao = "Sudeste";
+					break;
+				case sul:
+					regiao = "Sul";
+					break;
+				default:
+					regiao = "ND";
+					break;
 			}
 			return regiao;
 		}

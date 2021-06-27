@@ -24,10 +24,17 @@ namespace CodigoDeBarras
 
 			int cont = 0;
 			string caminhoSalvarRelatorio = "";
-			int opcao;
+			string opcao;
+			bool parar = false;
 
 			do
 			{
+				if(string.IsNullOrEmpty(caminhoDados))
+				{
+					Console.WriteLine("Entre Com Um Local Válido\n" +
+						"***** Programa Encerrado *****");
+					break;
+				}
 				//Prepara formatando a visualização para o usuário.
 				//Arquivo de origem não é editado.
 				fcb.formatarArquivo(caminhoDados, arquivoInicial, listPedido);
@@ -36,100 +43,113 @@ namespace CodigoDeBarras
 				Console.Write("Opção: ");
 
 				//Leitura da opção.
-				opcao = int.Parse(Console.ReadLine());
+				opcao = Console.ReadLine();
 				Console.WriteLine();
 
-
 				//0 é a opção do encerramento do programa.
-				switch(opcao)
+				while(!string.IsNullOrEmpty(opcao))
 				{
-					case 1:
-						//Visializar arquivo.
-						//Formata o arquivo e mostra para o usuário.
-						//Arquivo de origem não é editado.
-						//Arquivo .txt não é gerado.
-						visualizarArquivo(listPedido);
-						break;
+					switch(opcao)
+					{
+						case "1":
+							//Visializar arquivo.
+							//Formata o arquivo e mostra para o usuário.
+							//Arquivo de origem não é editado.
+							//Arquivo .txt não é gerado.
+							visualizarArquivo(listPedido);
+							opcao = "";
+							break;
 
-					case 2:
-						//Gera uma visialização de código de barras válidos.
-						//Mostra para o usuário, no console, apenas pacotes válidos.
-						//Arquivo de origem não é editado.
-						//Arquivo .txt não é gerado.
-						listarCodigoBarrasValido(listPedido);
-						break;
+						case "2":
+							//Gera uma visialização de código de barras válidos.
+							//Mostra para o usuário, no console, apenas pacotes válidos.
+							//Arquivo de origem não é editado.
+							//Arquivo .txt não é gerado.
+							listarCodigoBarrasValido(listPedido);
+							opcao = "";
+							break;
 
-					case 3:
-						//Gera uma visialização de código de barras inválidos.
-						//Mostra para o usuário, no console, apenas pacotes invalidos.
-						//Arquivo de origem não é editado.
-						//Arquivo .txt não é gerado.
-						listarCodigoBarrasInvalido(listPedido);
-						break;
+						case "3":
+							//Gera uma visialização de código de barras inválidos.
+							//Mostra para o usuário, no console, apenas pacotes invalidos.
+							//Arquivo de origem não é editado.
+							//Arquivo .txt não é gerado.
+							listarCodigoBarrasInvalido(listPedido);
+							opcao = "";
+							break;
 
-					case 4:
-						//Gera uma visialização de código de barras ordenados por região e produto.
-						//Mostra para o usuário, no console, apenas pacotes válidos.
-						//Arquivo de origem não é editado.
-						//Arquivo .txt não é gerado.
-						listarAgrupadoPorRegiao(listPedido);
-						break;
+						case "4":
+							//Gera uma visialização de código de barras ordenados por região e produto.
+							//Mostra para o usuário, no console, apenas pacotes válidos.
+							//Arquivo de origem não é editado.
+							//Arquivo .txt não é gerado.
+							listarOrdenadoPorDestino(listPedido);
+							opcao = "";
+							break;
 
-					case 5:
-						//Gera uma visialização dos vendedores.
-						//Contagem das vendas de cada um.
-						//Mostra para o usuário, no console, apenas pacotes válidos.
-						//Arquivo de origem não é editado.
-						//Arquivo .txt não é gerado.
-						Console.WriteLine(vendasVendedores(listPedido));
-						break;
+						case "5":
+							//Gera uma visialização dos vendedores.
+							//Contagem das vendas de cada um.
+							//Mostra para o usuário, no console, apenas pacotes válidos.
+							//Arquivo de origem não é editado.
+							//Arquivo .txt não é gerado.
+							Console.WriteLine(vendasVendedores(listPedido));
+							opcao = "";
+							break;
 
-					case 6:
-						//Gera uma visialização de uma ogirem de envio.
-						//Filtro por origem do pacote e produto.
-						//Se Condição Satisfeita, retrona o pacote.
-						//Se não, retorna pacote não localizado.
-						//Arquivo de origem não é editado.
-						//Arquivo .txt não é gerado.
-						string origem, produto;
-						Console.Write("Entre Com A Região De Origem: ");
-						origem = Console.ReadLine();
-						Console.Write("\nEntre Com O Produto: ");
-						produto = Console.ReadLine();
-						Console.WriteLine("\n");
-						pesquisarPorOrigemProduto(origem, produto, listPedido);
-						break;
+						case "6":
+							//Gera uma visialização de uma ogirem de envio.
+							//Filtro por origem do pacote e produto.
+							//Se Condição Satisfeita, retrona o pacote.
+							//Se não, retorna pacote não localizado.
+							//Arquivo de origem não é editado.
+							//Arquivo .txt não é gerado.
+							string origem, produto;
+							Console.Write("Entre Com A Região De Origem: ");
+							origem = Console.ReadLine();
+							Console.Write("\nEntre Com O Produto: ");
+							produto = Console.ReadLine();
+							Console.WriteLine("\n");
+							pesquisarPorOrigemProduto(origem, produto, listPedido);
+							opcao = "";
+							break;
 
-					case 7:
-						//Gera relatório.
-						//Entrada do caminho para salvar o arquivo é obrigatória.
-						//Um único caminho é necessário.
-						//É obrigatório o título do relatório.
-						//Arquivo de origem não é editado.
-						//Arquivo .txt é gerado com o título fornecido.
-						if(cont < 1)
-						{
-							Console.Write("Entre Com O Camino Onde Salvar O Relatório Gerado: ");
-							caminhoSalvarRelatorio = Console.ReadLine();
-						}
-						cont++;
+						case "7":
+							//Gera relatório.
+							//Entrada do caminho para salvar o arquivo é obrigatória.
+							//Um único caminho é necessário.
+							//É obrigatório o título do relatório.
+							//Arquivo de origem não é editado.
+							//Arquivo .txt é gerado com o título fornecido.
+							if(cont < 1)
+							{
+								Console.Write("Entre Com O Camino Onde Salvar O Relatório Gerado: ");
+								caminhoSalvarRelatorio = Console.ReadLine();
+							}
+							cont++;
 
-						Console.Write("Entre Com O Nome Do Relatório A Ser Gerado: ");
-						string nomeRelatorio = Console.ReadLine();
-						gerarRelatorio(caminhoSalvarRelatorio, nomeRelatorio, listPedido);
-						break;
+							Console.Write("Entre Com O Nome Do Relatório A Ser Gerado: ");
+							string nomeRelatorio = Console.ReadLine();
+							gerarRelatorio(caminhoSalvarRelatorio, nomeRelatorio, listPedido);
+							opcao = "";
+							break;
 
-					case 8:
-						//Limpeza do console
-						Console.Clear();
-						break;
+						case "8":
+							//Limpeza do console
+							Console.Clear();
+							opcao = "";
+							break;
 
-					default:
-						Console.WriteLine("***** Fim *****");
-						break;
+						case "0":
+							Console.WriteLine("***** Fim *****");
+							opcao = "";
+							parar = true;
+							break;
+					}
+
 				}
-
-			} while(opcao != 0); 
+				
+			} while(parar != true);
 
 
 		}//Fim: Main
@@ -150,7 +170,7 @@ namespace CodigoDeBarras
 		//Menu: 2 - Listar Código de Barras Válidos
 		private static void listarCodigoBarrasValido(List<Pedido> listPedido)
 		{
-			Console.WriteLine("***** Início Do Arquivo *****\n");
+			Console.WriteLine("***** Início Código de Barras Válidos*****\n");
 
 			envio.restricoes(listPedido);
 
@@ -165,7 +185,7 @@ namespace CodigoDeBarras
 		//Menu: 3 - Listar Código de Barras Inválidos
 		private static void listarCodigoBarrasInvalido(List<Pedido> listPedido)
 		{
-			Console.WriteLine("***** Início Do Arquivo *****\n");
+			Console.WriteLine("***** Início Código de Barras Inválidos *****\n");
 
 			List<Pedido> codInvalido = listPedido;
 			codInvalido.RemoveAll(delegate (Pedido p)
@@ -186,9 +206,9 @@ namespace CodigoDeBarras
 		}
 
 		//Menu: 4 - Listar Agrupado Por Região
-		private static void listarAgrupadoPorRegiao(List<Pedido> listPedido)
+		private static void listarOrdenadoPorDestino(List<Pedido> listPedido)
 		{
-			Console.WriteLine("***** Início Do Arquivo *****\n");
+			Console.WriteLine("***** Início Agrupar Por Região *****\n");
 
 			envio.restricoes(listPedido);
 
@@ -209,7 +229,7 @@ namespace CodigoDeBarras
 		//Menu: 5 - Listar Vendas + Vendedores
 		private static string vendasVendedores(List<Pedido> listPedido)
 		{
-			Console.WriteLine("***** Início Do Arquivo *****\n");
+			Console.WriteLine("***** Início Quantidade de Vendas Por Vendedor *****\n");
 
 			envio.restricoes(listPedido);
 
@@ -217,18 +237,9 @@ namespace CodigoDeBarras
 
 			foreach(var item in listPedido)
 			{
-				if(item.CodVendedor == "123")
-				{
-					v123++;
-				}
-				if(item.CodVendedor == "124")
-				{
-					v124++;
-				}
-				if(item.CodVendedor == "845")
-				{
-					v845++;
-				}
+				if(item.CodVendedor == "123") { v123++; }
+				if(item.CodVendedor == "124") { v124++; }
+				if(item.CodVendedor == "845") { v845++; }
 				if(item.CodVendedor == "874")
 				{
 					v874++;
@@ -246,7 +257,7 @@ namespace CodigoDeBarras
 		//Menu: 6 - Pesquisar Por Origem e Produto
 		private static void pesquisarPorOrigemProduto(string origem, string produto, List<Pedido> listPedido)
 		{
-			Console.WriteLine("***** Início Do Arquivo *****\n");
+			Console.WriteLine("***** Início Pesquisar Origem do Produto *****\n");
 
 			foreach(var item in listPedido)
 			{
@@ -264,7 +275,7 @@ namespace CodigoDeBarras
 		//Menu: 7 - Gerar Relatório
 		private static void gerarRelatorio(string caminhoSalvarRelatorio, string nomeRelatorio, List<Pedido> listPedido)
 		{
-			Console.WriteLine("***** Início Do Arquivo *****\n");
+			Console.WriteLine("***** Início Gerar Relatório *****\n");
 
 			envio.restricoes(listPedido);
 

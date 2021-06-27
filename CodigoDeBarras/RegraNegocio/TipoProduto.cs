@@ -2,39 +2,35 @@
 {
 	class TipoProduto
 	{
-		private readonly string joias = "000";
-		private readonly string livros = "111";
-		private readonly string eletronicos = "333";
-		private readonly string bebidas = "555";
-		private readonly string brinquedos = "888";
+		const string joias = "000";
+		const string livros = "111";
+		const string eletronicos = "333";
+		const string bebidas = "555";
+		const string brinquedos = "888";
 
 		public string tipoProduto(string produto)
-		{
-			if(produto == joias)
+		{	
+			switch(produto)
 			{
-				produto = "Jóias";
+				case joias:
+					produto = "Jóias";
+					break;
+				case livros:
+					produto = "Livros";
+					break;
+				 case eletronicos:
+					produto = "Eletrônicos";
+					break;
+				 case bebidas:
+					produto = "Bebidas";
+					break;
+				 case brinquedos:
+					produto = "Brinquedos";
+					break;
+				default:
+					produto = "ND";
+					break;
 			}
-			else if(produto == livros)
-			{
-				produto = "Livros";
-			}
-			else if(produto == eletronicos)
-			{
-				produto = "Eletrônicos";
-			}
-			else if(produto == bebidas)
-			{
-				produto = "Bebidas";
-			}
-			else if(produto == brinquedos)
-			{
-				produto = "Brinquedos";
-			}
-			else
-			{
-				produto = "ND";
-			}
-
 			return produto;
 		}
 	}
